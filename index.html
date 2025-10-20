@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CleanConvertPDF</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>CleanConvertPDF</h1>
+    <p>Converti HTML/URL in PDF compatibile con assistenti AI</p>
+  </header>
+
+  <main>
+    <form id="convert-form">
+      <label for="input-url">Inserisci URL o carica HTML:</label>
+      <input type="text" id="input-url" placeholder="https://esempio.com" required />
+
+      <label>
+        <input type="checkbox" id="ai-friendly" checked />
+        Modalità AI-friendly
+      </label>
+
+      <button type="submit">Converti in PDF</button>
+    </form>
+
+    <section id="output">
+      <h2>Anteprima PDF</h2>
+      <iframe id="pdf-preview" src="" hidden></iframe>
+
+      <div class="actions">
+        <button id="download-btn" disabled>📄 Scarica PDF</button>
+        <button id="drive-btn" disabled>📁 Salva su Google Drive</button>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <p>PDF compatibile con NotebookLM, ChatGPT, Claude e altri assistenti AI</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
