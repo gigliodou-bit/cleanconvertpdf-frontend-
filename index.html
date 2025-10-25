@@ -5,10 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CleanConvertPDF</title>
   <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
 <body>
   <header>
-    <h1 id="title">CleanConvertPDF</h1>
+    <div class="logo">🧼 CleanConvertPDF</div>
     <select id="language-selector">
       <option value="en">🇬🇧 English</option>
       <option value="it">🇮🇹 Italiano</option>
@@ -18,25 +20,31 @@
   </header>
 
   <main>
-    <form action="/convert-url" method="POST">
-      <label for="url" id="label-url">Insert URL:</label>
-      <input type="url" name="url" id="url" required placeholder="https://example.com" />
-      <label>
-        <input type="checkbox" name="saveToDrive" />
-        <span id="label-drive">Save to Google Drive</span>
-      </label>
-      <button type="submit" id="btn-url">Convert from URL</button>
-    </form>
+    <section class="card">
+      <h2 id="title-url">Convert from URL</h2>
+      <form action="/convert-url" method="POST">
+        <label for="url" id="label-url">Enter URL:</label>
+        <input type="url" name="url" id="url" required placeholder="https://example.com" />
+        <label class="checkbox">
+          <input type="checkbox" name="saveToDrive" />
+          <span id="label-drive">Save to Google Drive</span>
+        </label>
+        <button type="submit" id="btn-url">Convert</button>
+      </form>
+    </section>
 
-    <form action="/convert-html" method="POST" enctype="multipart/form-data">
-      <label for="htmlFile" id="label-html">Upload HTML file:</label>
-      <input type="file" name="htmlFile" id="htmlFile" accept=".html" required />
-      <label>
-        <input type="checkbox" name="saveToDrive" />
-        <span id="label-drive-html">Save to Google Drive</span>
-      </label>
-      <button type="submit" id="btn-html">Convert from HTML</button>
-    </form>
+    <section class="card">
+      <h2 id="title-html">Convert from HTML</h2>
+      <form action="/convert-html" method="POST" enctype="multipart/form-data">
+        <label for="htmlFile" id="label-html">Upload HTML file:</label>
+        <input type="file" name="htmlFile" id="htmlFile" accept=".html" required />
+        <label class="checkbox">
+          <input type="checkbox" name="saveToDrive" />
+          <span id="label-drive-html">Save to Google Drive</span>
+        </label>
+        <button type="submit" id="btn-html">Convert</button>
+      </form>
+    </section>
   </main>
 
   <footer>
