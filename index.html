@@ -1,45 +1,48 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>CleanConvertPDF</title>
-  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
   <header>
-    <h1>CleanConvertPDF</h1>
-    <p>Converti HTML/URL in PDF compatibile con assistenti AI</p>
+    <h1 id="title">CleanConvertPDF</h1>
+    <select id="language-selector">
+      <option value="en">🇬🇧 English</option>
+      <option value="it">🇮🇹 Italiano</option>
+      <option value="es">🇪🇸 Español</option>
+      <option value="pt">🇵🇹 Português</option>
+    </select>
   </header>
 
   <main>
-    <form id="convert-form">
-      <label for="input-url">Inserisci URL o carica HTML:</label>
-      <input type="text" id="input-url" placeholder="https://esempio.com" required />
-
+    <form action="/convert-url" method="POST">
+      <label for="url" id="label-url">Insert URL:</label>
+      <input type="url" name="url" id="url" required placeholder="https://example.com" />
       <label>
-        <input type="checkbox" id="ai-friendly" checked />
-        Modalità AI-friendly
+        <input type="checkbox" name="saveToDrive" />
+        <span id="label-drive">Save to Google Drive</span>
       </label>
-
-      <button type="submit">Converti in PDF</button>
+      <button type="submit" id="btn-url">Convert from URL</button>
     </form>
 
-    <section id="output">
-      <h2>Anteprima PDF</h2>
-      <iframe id="pdf-preview" src="" hidden></iframe>
-
-      <div class="actions">
-        <button id="download-btn" disabled>📄 Scarica PDF</button>
-        <button id="drive-btn" disabled>📁 Salva su Google Drive</button>
-      </div>
-    </section>
+    <form action="/convert-html" method="POST" enctype="multipart/form-data">
+      <label for="htmlFile" id="label-html">Upload HTML file:</label>
+      <input type="file" name="htmlFile" id="htmlFile" accept=".html" required />
+      <label>
+        <input type="checkbox" name="saveToDrive" />
+        <span id="label-drive-html">Save to Google Drive</span>
+      </label>
+      <button type="submit" id="btn-html">Convert from HTML</button>
+    </form>
   </main>
 
   <footer>
-    <p>PDF compatibile con NotebookLM, ChatGPT, Claude e altri assistenti AI</p>
+    <p>&copy; 2025 CleanConvertPDF</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="lang.js"></script>
 </body>
 </html>
